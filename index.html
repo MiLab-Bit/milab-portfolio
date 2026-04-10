@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiLab · 文明功能实验室 | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'stone-bg': '#f4f2ed',
+                        'stone-card': '#e9e6df',
+                        'stone-text': '#1c1c1c',
+                        'accent': '#af4028',
+                    },
+                    fontFamily: {
+                        'serif': ['"Noto Serif SC"', 'serif'],
+                        'sans': ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f4f2ed;
+            color: #1c1c1c;
+            background-image: radial-gradient(#dcd9d0 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .art-preview { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        .style-signal { background: repeating-radial-gradient(circle, #1c1c1c 0, #1c1c1c 1px, transparent 1px, transparent 4px); background-size: 8px 8px; opacity: 0.2; }
+        .style-cave { background: linear-gradient(45deg, #8b7355 25%, transparent 25%), linear-gradient(-45deg, #8b7355 25%, transparent 25%); background-size: 30px 30px; opacity: 0.15; }
+        .style-egypt { background: repeating-linear-gradient(90deg, #1c1c1c, #1c1c1c 2px, transparent 2px, transparent 15px); opacity: 0.1; }
+        .style-ukiyo { background: radial-gradient(circle at 100% 50%, #af4028 0%, transparent 50%), radial-gradient(circle at 0% 50%, #2a4d69 0%, transparent 50%); opacity: 0.15; }
+        .style-ink { background: linear-gradient(to bottom, #1c1c1c, transparent); filter: blur(8px); opacity: 0.2; }
+        .style-gothic { background: conic-gradient(from 180deg at 50% 50%, #af4028, #1c1c1c, #af4028); opacity: 0.1; }
+        .style-impression { background: repeating-linear-gradient(45deg, rgba(175,64,40,0.1) 0px, rgba(175,64,40,0.1) 10px, transparent 10px, transparent 20px); opacity: 0.2; }
+
+        .menu-btn-active { background-color: #1c1c1c !important; color: white !important; }
+
+        .album-cover {
+            position: relative;
+            aspect-ratio: 1/1;
+            overflow: hidden;
+            background: #222;
+        }
+        .album-cover::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%, rgba(0,0,0,0.2) 100%);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-accent selection:text-white">
+
+    <!-- Chosen Palette: [Heritage Lab] - 羊皮纸感的中性背景色，搭配硬核的黑色与朱砂红。 -->
+    <!-- Application Structure Plan: 
+        1. 顶部固定导航。
+        2. Hero: 品牌精神展示。
+        3. 图集索引: 解决 ImgBB 嵌套限制，采用交互式索引。
+        4. 音乐实验: 更新为网易云音乐链接，采用高质感专辑卡片。
+        5. 方法论与哲学: 解释 AIGC 与文明功能的结合。
+    -->
+
+    <!-- Nav -->
+    <nav class="fixed top-0 w-full z-50 bg-stone-bg/90 backdrop-blur-md border-b border-stone-card">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="font-serif font-bold text-lg tracking-tight">MiLab · 文明功能实验室</div>
+            <div class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest text-stone-muted">
+                <a href="#galleries" class="hover:text-accent transition-colors">图集 / Galleries</a>
+                <a href="#music" class="hover:text-accent transition-colors">专辑 / Records</a>
+                <a href="#methods" class="hover:text-accent transition-colors">方法 / Methods</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="min-h-screen flex flex-col items-center justify-center pt-16 px-6 text-center">
+        <div class="space-y-6 max-w-4xl">
+            <h1 class="font-serif text-6xl md:text-9xl font-bold tracking-tighter">MiLab</h1>
+            <p class="text-xl md:text-2xl font-serif italic text-stone-muted">在 AIGC 时代，用音乐与图像做文明功能的实验。</p>
+            <div class="h-px w-24 bg-accent mx-auto my-12"></div>
+            <p class="text-stone-text leading-relaxed bg-stone-card/30 p-8 border-l-4 border-accent text-left md:text-center text-lg">
+                本页收录三组正在使用的作品：文明图集《文明功能主义图集》、实验专辑《范式 Folk》、命题专辑《Nst. 皮尔枦岸的暗流》。它们共同组成一次关于“发明”与“文明”的小规模试验。
+            </p>
+        </div>
+        <div class="mt-16 animate-bounce text-stone-muted text-sm tracking-widest uppercase">
+            向下滚动探索 / Scroll to Explore
+        </div>
+    </section>
+
+    <!-- Section 1: Galleries -->
+    <section id="galleries" class="py-32 px-6 border-t border-stone-card">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-20">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">文明功能主义图集</h2>
+                <p class="text-stone-muted uppercase tracking-[0.3em] text-sm">Visual Experiments on Civilization</p>
+                <p class="mt-8 text-stone-text max-w-2xl leading-relaxed">
+                    这是一组用 AIGC 完成的图像实验。我先给出方向与流派，再让模型在容器里生长画面。系列《信号社会》作为对当下城市表面的直接记录，放在整个系列的最前。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                <!-- Gallery Menu -->
+                <div class="lg:col-span-4 space-y-2" id="gallery-menu">
+                    <!-- JS Populated -->
+                </div>
+
+                <!-- Display Box -->
+                <div class="lg:col-span-8">
+                    <div class="relative bg-white border border-stone-card p-10 md:p-16 overflow-hidden min-h-[600px] flex flex-col justify-between shadow-sm">
+                        <div id="visual-bg" class="absolute inset-0 art-preview style-signal pointer-events-none"></div>
+                        
+                        <div class="relative z-10">
+                            <h3 id="view-title" class="font-serif text-4xl font-bold mb-3">信号社会</h3>
+                            <p id="view-subtitle" class="text-accent font-bold text-sm tracking-widest uppercase mb-8">孔板印刷城市记录</p>
+                            <div id="view-desc" class="text-stone-text leading-relaxed max-w-xl text-lg mb-10">
+                                <!-- JS Content -->
+                            </div>
+                        </div>
+
+                        <div class="relative z-10 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                            <a id="view-link" href="#" target="_blank" class="inline-flex items-center space-x-4 bg-stone-text text-white px-10 py-5 font-bold hover:bg-accent transition-all group">
+                                <span>进入数字展厅查看全集</span>
+                                <span class="group-hover:translate-x-2 transition-transform">→</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Music (Updated to NetEase Cloud Music) -->
+    <section id="music" class="py-32 px-6 bg-stone-card/20 border-t border-stone-card">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-20">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">音乐专辑</h2>
+                <p class="text-stone-muted uppercase tracking-[0.3em] text-sm">Experimental Records</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24">
+                <!-- Album 1: Paradigm Folk -->
+                <div class="flex flex-col">
+                    <div class="album-cover mb-10 shadow-2xl group">
+                        <div class="absolute inset-0 bg-gradient-to-br from-stone-400 to-stone-800 flex items-center justify-center">
+                            <div class="text-stone-200 font-serif text-4xl font-bold opacity-30 tracking-[0.2em] group-hover:scale-110 transition-transform duration-700">PARADIGM</div>
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity">
+                             <a href="https://music.163.com/#/album?id=360424505" target="_blank" class="bg-white text-stone-text px-6 py-3 font-bold tracking-widest">立即收听 ↗</a>
+                        </div>
+                    </div>
+                    <h3 class="font-serif text-3xl font-bold mb-4">《范式 Folk》</h3>
+                    <p class="text-accent font-bold text-xs uppercase tracking-widest mb-6">4 小时的一次性实验 / 5 个立场</p>
+                    <p class="text-stone-text leading-relaxed mb-10">
+                        一张在约 4 小时内完成的一次性 AIGC 专辑。五首歌分别对应五个文明命题：LGBT+、宗教、量子物理、生命科学与 AGI。我先决定立场，再由 AI 生成歌词与音乐，不做反复修改。
+                    </p>
+                    <a href="https://music.163.com/#/album?id=360424505" target="_blank" class="mt-auto inline-flex items-center justify-center border-2 border-stone-text py-4 font-bold hover:bg-stone-text hover:text-white transition-all">
+                        在 网易云音乐 中打开 ↗
+                    </a>
+                </div>
+
+                <!-- Album 2: Nst. -->
+                <div class="flex flex-col">
+                    <div class="album-cover mb-10 shadow-2xl group">
+                        <div class="absolute inset-0 bg-gradient-to-br from-accent to-black flex items-center justify-center">
+                            <div class="text-white font-serif text-4xl font-bold opacity-20 tracking-[0.5em] group-hover:scale-110 transition-transform duration-700">NST.</div>
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity">
+                             <a href="https://music.163.com/#/album?id=360792556" target="_blank" class="bg-white text-stone-text px-6 py-3 font-bold tracking-widest">立即收听 ↗</a>
+                        </div>
+                    </div>
+                    <h3 class="font-serif text-3xl font-bold mb-4">《Nst. 皮尔枦岸的暗流》</h3>
+                    <p class="text-stone-muted font-bold text-xs uppercase tracking-widest mb-6">战争命题的 Punk 解题 / 上下两章</p>
+                    <p class="text-stone-text leading-relaxed mb-10">
+                        围绕“战争”命题展开的长篇专辑。上半部用俄语书写个人情感战役；下半部用法语处理历史与社会结构。每一首歌都经历了完整的人工写作与反复推演。
+                    </p>
+                    <a href="https://music.163.com/#/album?id=360792556" target="_blank" class="mt-auto inline-flex items-center justify-center border-2 border-stone-text py-4 font-bold hover:bg-stone-text hover:text-white transition-all">
+                        在 网易云音乐 中打开 ↗
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Methods -->
+    <section id="methods" class="py-32 px-6 border-t border-stone-card">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="font-serif text-4xl font-bold mb-20 text-center">创作方法与 AIGC 协作</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
+                <div class="relative p-8 bg-stone-card/30 border border-stone-card">
+                    <div class="text-accent font-serif text-5xl font-bold mb-6">01</div>
+                    <h4 class="font-bold text-lg mb-4">图集：方向矩阵</h4>
+                    <p class="text-stone-muted text-sm leading-relaxed">设定流派容器与观看方向。在限定双重容器内生成图像，以策展思维进行筛选。</p>
+                </div>
+                <div class="relative p-8 bg-stone-card/30 border border-stone-card">
+                    <div class="text-stone-text font-serif text-5xl font-bold mb-6">02</div>
+                    <h4 class="font-bold text-lg mb-4">Folk：立场先行</h4>
+                    <p class="text-stone-muted text-sm leading-relaxed">确定立场 → 文本对话。不进行后期修改，让生成过程本身成为文明实验的样本。</p>
+                </div>
+                <div class="relative p-8 bg-stone-card/30 border border-stone-card">
+                    <div class="text-stone-text font-serif text-5xl font-bold mb-6">03</div>
+                    <h4 class="font-bold text-lg mb-4">Nst.：结构翻译</h4>
+                    <p class="text-stone-muted text-sm leading-relaxed">中文大意 → 俄/法语校对。为每首设计专属 Prompt，注重整张专辑的结构化体验。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-40 px-6 bg-stone-text text-stone-bg border-t border-stone-card">
+        <div class="max-w-3xl mx-auto text-center space-y-12">
+            <h2 class="font-serif text-3xl md:text-5xl font-bold">文明功能主义</h2>
+            <p class="text-stone-400 text-lg leading-relaxed italic max-w-2xl mx-auto">
+                艺术不是自我表达的副业，而是文明的一种功能。MiLab 是一个贴在所有与文明、技术与感知相关的创作旁边的便利贴。
+            </p>
+            <div class="pt-20 border-t border-stone-800 flex flex-col items-center">
+                <div class="font-bold tracking-widest uppercase text-sm mb-4">MiLab / 文明功能实验室</div>
+                <div class="text-stone-500 text-xs tracking-widest uppercase">Portfolio 2026</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const galleryData = [
+            {
+                title: '信号社会',
+                subtitle: '孔板印刷城市记录',
+                url: 'https://ibb.co/album/FsLyDj',
+                style: 'style-signal',
+                desc: '整个图集里最直接指向当下的系列。所有图像带有孔板印刷的质感：粗网点、偏色、印刷噪点。记录的是“被屏幕、摄像头和网络信号穿透过的城市”。'
+            },
+            {
+                title: '洞穴壁画',
+                subtitle: '重思记录起点',
+                url: 'https://ibb.co/album/bFnWQD',
+                style: 'style-cave',
+                desc: '从洞穴壁画开始，人第一次把“看见”变成痕迹。这个系列不是复刻，而是用洞穴壁画的语法，重新想象“把古人的生活抽象化”。'
+            },
+            {
+                title: '埃及壁画',
+                subtitle: '视觉编码的秩序',
+                url: 'https://ibb.co/album/3mLLHm',
+                style: 'style-egypt',
+                desc: '埃及壁画的平面性和符号性适合讲“秩序”。当社会角色、权力结构、死亡与未来压缩成一面墙时，哪些元素会被保留？'
+            },
+            {
+                title: '浮世绘',
+                subtitle: '日本怪谈',
+                url: 'https://ibb.co/album/f8KWT7',
+                style: 'style-ukiyo',
+                desc: '选择的是“怪谈”方向。AI 生成的画面，一半是图像，一半是故事。暗示了一个没被讲完的怪谈情节，推前“图像能讲到哪里”。'
+            },
+            {
+                title: '水墨画',
+                subtitle: '手势与留白的边界',
+                url: 'https://ibb.co/album/KxF2vY',
+                style: 'style-ink',
+                desc: '刻意减少提示中的细节描述，只保留结构和气氛，让模型自己在有限的线条和墨块中去“摸索”水墨的可能边界。'
+            },
+            {
+                title: '哥特彩窗',
+                subtitle: '光学叙事',
+                url: 'https://ibb.co/album/4gcL4h',
+                style: 'style-gothic',
+                desc: '颜色、故事和宗教被压缩在同一块玻璃里。看当代的神话与权力想象，在经过一次“彩窗化”之后会变成什么样的光。'
+            },
+            {
+                title: '印象派',
+                subtitle: '光线与本真的守护',
+                url: 'https://ibb.co/album/m0PNkR',
+                style: 'style-impression',
+                desc: '不是简单模仿某位画家，而是把经典作品的气氛、光线和笔触拆开重组，寻找印象派画作到底在守护什么样的本真。'
+            }
+        ];
+
+        const menuContainer = document.getElementById('gallery-menu');
+        const viewTitle = document.getElementById('view-title');
+        const viewSubtitle = document.getElementById('view-subtitle');
+        const viewDesc = document.getElementById('view-desc');
+        const viewLink = document.getElementById('view-link');
+        const visualBg = document.getElementById('visual-bg');
+
+        function updateGallery(index) {
+            const data = galleryData[index];
+            viewTitle.textContent = data.title;
+            viewSubtitle.textContent = data.subtitle;
+            viewDesc.textContent = data.desc;
+            viewLink.href = data.url;
+            visualBg.className = 'absolute inset-0 art-preview ' + data.style;
+            document.querySelectorAll('.menu-btn').forEach((btn, i) => {
+                if(i === index) btn.classList.add('menu-btn-active');
+                else btn.classList.remove('menu-btn-active');
+            });
+        }
+
+        galleryData.forEach((item, index) => {
+            const btn = document.createElement('button');
+            btn.className = 'menu-btn w-full text-left px-6 py-4 border border-stone-card bg-white font-bold text-sm transition-all hover:border-accent flex justify-between items-center group';
+            btn.innerHTML = `<span>${item.title}</span> <span class="opacity-0 group-hover:opacity-100 transition-opacity">→</span>`;
+            btn.onclick = () => updateGallery(index);
+            menuContainer.appendChild(btn);
+        });
+
+        updateGallery(0);
+    </script>
+</body>
+</html>
